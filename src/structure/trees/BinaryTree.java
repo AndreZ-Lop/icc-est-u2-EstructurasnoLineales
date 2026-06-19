@@ -1,13 +1,16 @@
 package structure.trees;
 
 import structure.node.Node;
-
+// Para que un arbol tenga la posibilidad de comparar datos genericos debe declarar el arbol de esta manera
 public class BinaryTree<T extends Comparable<T>> {
+    // Cualquier dato que tenga metodos compareTo se le podra añadir a este arbol
+    // Caso contrario no se podra almacenar hasta que se implemente el compareTo en esa clase 
     private Node <T> root;
     private int weight;
 
     public BinaryTree(){
         this.root = null;
+        // Este atriuto nos deja saber cuantos elemtentos existe dentro del arbol se ira sumando conforme se elminine o se añada nodos al arbol 
         this.weight = 0;
     }
 

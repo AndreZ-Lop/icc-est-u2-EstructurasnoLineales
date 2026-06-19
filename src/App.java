@@ -11,6 +11,11 @@ public class App {
     private static void runBinaryTree() {
         BinaryTree <String> arbolStrings = new BinaryTree<>();
         BinaryTree <Persona> arbolPersona = new BinaryTree<>();
+        arbolPersona.add(new Persona("Pablo", 30));
+        arbolPersona.add(new Persona("Ana", 25));
+        arbolPersona.add(new Persona("Luis", 35));
+        arbolPersona.add(new Persona("Maria", 28));
+        arbolPersona.add(new Persona("Carlos", 25));
     }
 
     private static void runIntTree() {
