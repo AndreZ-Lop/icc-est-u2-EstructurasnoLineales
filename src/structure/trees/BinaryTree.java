@@ -2,20 +2,20 @@ package structure.trees;
 
 import structure.node.Node;
 
-public class IntTree {
-    private Node <Integer> root;
+public class BinaryTree<T extends Comparable<T>> {
+    private Node <T> root;
     private int weight;
 
-    public IntTree(){
+    public BinaryTree(){
         this.root = null;
         this.weight = 0;
     }
 
-    public Node<Integer> getRoot() {
+    public Node<T> getRoot() {
         return root;
     }
 
-    public void setRoot(Node<Integer> root) {
+    public void setRoot(Node<T> root) {
         this.root = root;
     }
 
@@ -25,17 +25,16 @@ public class IntTree {
 
 
     //Metodo que crea y ubica de manera automatica los nodos en el arbol
-    public void add(Integer value){ // metodo que recibe un integer
-       Node<Integer> node = new Node<Integer>(value); // metodo que crera un nodo con el valor
+    public void add(T value){ // metodo que recibe un integer
+       Node<T> node = new Node<T>(value); // metodo que crera un nodo con el valor
        root = addRecursividad(root, node); // llamo a mi metodo recurisvo
         weight++;
     }
 
-    private Node<Integer> addRecursividad(Node<Integer> actual, Node<Integer> nodeInsertar) { // recibe el nodo actual y el que se busca ingresar
+    private Node<T> addRecursividad(Node<T> actual, Node<T> nodeInsertar) { // recibe el nodo actual y el que se busca ingresar
         // Caso base
         if(actual == null) return nodeInsertar; // Si no existe una raiz el nodo a insertar se vuelve la raiz o el hijo de algun nodo que no tenga referencias
-        
-        if(actual.getValue() > nodeInsertar.getValue()){
+        if(actual.getValue().compareTo(nodeInsertar.getValue())> 0){
             // se tendra que añadir a la izquierda la referencia
             // para no perder referencias del anterior se debera hacer llamados recursivos a este mismo metodo
             actual.setLeft(addRecursividad(actual.getLeft(), nodeInsertar));
@@ -52,7 +51,7 @@ public class IntTree {
         preOrdenRecursivo(root);
     }
     //siempre se le pasa la raiz 
-    private void preOrdenRecursivo(Node <Integer> actual) {
+    private void preOrdenRecursivo(Node <T> actual) {
         if(actual == null) return;
 
         //se procesa el nodo actual
@@ -67,7 +66,7 @@ public class IntTree {
         posOrderRecursivo(root);
     }
 
-    private void posOrderRecursivo(Node<Integer> actual) {
+    private void posOrderRecursivo(Node<T> actual) {
         if(actual == null) return;
         //se procesa la izquierda
         preOrdenRecursivo(actual.getLeft());
@@ -81,7 +80,7 @@ public class IntTree {
         inOrderRecursivo(root);
     }
 
-    private void inOrderRecursivo(Node<Integer> actual) {
+    private void inOrderRecursivo(Node<T> actual) {
         if(actual == null) return;
         //se procesa la izquierda
         preOrdenRecursivo(actual.getLeft());
@@ -95,7 +94,7 @@ public class IntTree {
         return getHeightRecursiva(root);
     }
 
-    private int getHeightRecursiva(Node<Integer> actual) {
+    private int getHeightRecursiva(Node<T> actual) {
         // cuando se llegue a un nodo sin hijos su altura terminara ahi
         if(actual == null) return 0;
         //obtenemos la altura de la izquierda de la derecha 
@@ -106,6 +105,4 @@ public class IntTree {
         //durante el caso recursivo tenemos la base de que cuando llegue a ser null uno de sus hijos retorna 0 por eso le debemos sumar 1
         return max + 1;
     }
-
-    // El peso se puede hacer con recursividad pero su complejidad se eleva a O(2^n)
 }

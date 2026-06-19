@@ -1,8 +1,16 @@
+import structure.trees.BinaryTree;
 import structure.trees.IntTree;
+import models.Persona;
 
 public class App {
     public static void main(String[] args) throws Exception {
         runIntTree();
+        runBinaryTree();
+    }
+
+    private static void runBinaryTree() {
+        BinaryTree <String> arbolStrings = new BinaryTree<>();
+        BinaryTree <Persona> arbolPersona = new BinaryTree<>();
     }
 
     private static void runIntTree() {
@@ -15,12 +23,18 @@ public class App {
         arbolNumero.add(75);
         arbolNumero.add(55);
 
+        System.out.println("=== Pre Orden ===");
+        arbolNumero.preOrden();
+        System.out.println("=== Post Orden ===");
+        arbolNumero.posOrder();
+        System.out.println("=== In Order ===");
+        arbolNumero.inOrder();
 
-        
+        System.out.println("=== Altura ===");
+        System.out.println(arbolNumero.getHeight());
 
-        // arbolNumero.setRoot(nodeRoot);
-        // Node<Integer> node2 = new Node<Integer>(10);
-        // Node<Integer> node3 = new Node<Integer>(30);
-        // System.out.println(arbolNumero.getRoot());
+        System.out.println("=== Peso sin recursivo ===");
+        System.out.println(arbolNumero.getWeightSinRecursivo());
+
     }
 }
