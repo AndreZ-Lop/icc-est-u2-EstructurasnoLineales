@@ -24,6 +24,10 @@ public class App {
     private static void runIntTree() {
         //Creacion del molde para el arbol
         IntTree arbolNumero = new IntTree();
+        arbolNumero.add(1);
+        arbolNumero.add(3);
+        arbolNumero.add(5);
+        arbolNumero.add(2);
 
         System.out.println("=== Pre Orden ===");
         arbolNumero.preOrden();

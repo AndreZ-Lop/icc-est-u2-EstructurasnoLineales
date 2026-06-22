@@ -1,8 +1,5 @@
 package structure.trees;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 import structure.node.Node;
 
 public class Ejercicio1 {
