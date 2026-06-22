@@ -4,11 +4,6 @@ import structure.node.Node;
 
 public class Ejercicio2 {
     public void insert(int [] numeros){
-        //Crear arbol entero;
-        //Insertar cada numero 
-
-        //imprimir el arbol
-
         BinaryTree<Integer> arbolEntero = new BinaryTree<>();
         for(int numero: numeros){
             arbolEntero.add(numero);
