@@ -28,7 +28,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
 
     //Metodo que crea y ubica de manera automatica los nodos en el arbol
-    public void add(T value){ // metodo que recibe un integer
+    public void add(T value){ // metodo que recibe un valor
        Node<T> node = new Node<T>(value); // metodo que crera un nodo con el valor
        root = addRecursividad(root, node); // llamo a mi metodo recurisvo
         weight++;
@@ -98,14 +98,14 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     private int getHeightRecursiva(Node<T> actual) {
-        // cuando se llegue a un nodo sin hijos su altura terminara ahi
+        
         if(actual == null) return 0;
         //obtenemos la altura de la izquierda de la derecha 
         int heightLeft = getHeightRecursiva(actual.getLeft());
         int heightRight = getHeightRecursiva(actual.getRight());
-        //aqui solo nos quedaremos con el mas alto entre los 2;
+       
         int max = Math.max(heightLeft, heightRight);
-        //durante el caso recursivo tenemos la base de que cuando llegue a ser null uno de sus hijos retorna 0 por eso le debemos sumar 1
+        
         return max + 1;
     }
 }
