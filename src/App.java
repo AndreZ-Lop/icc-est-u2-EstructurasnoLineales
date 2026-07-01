@@ -1,5 +1,5 @@
 import structure.trees.BinaryTree;
-import java.util.ArrayList;
+
 import structure.trees.Ejercicio1;
 import structure.trees.Ejercicio2;
 import structure.trees.Ejercicio3;
@@ -7,6 +7,7 @@ import structure.trees.Ejercicio4;
 import structure.trees.IntTree;
 import collections.set.Sets;
 import java.util.Set;
+import collections.maps.Maps;
 
 import models.Contacto;
 import models.Persona;
@@ -20,7 +21,11 @@ public class App {
         // runNiveles();
         // runProfundidad();
 
-        runSets();
+        // runSets();
+
+        Maps.construirHashMap();
+        Maps.cLinkedHashMap();
+        Maps.cTreeHashMap();
     }
 
     private static void runSets() {
